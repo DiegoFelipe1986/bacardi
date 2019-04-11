@@ -12,69 +12,36 @@
 <body>
     <div class="container">
         <div>
-            <img src="./img/logoBacardi.png" style="width: 250px" class="responsive" alt="">
+            <img src="./img/logoBacardi.png" style="width: 180px" class="responsive fadeIn" alt="">
+        </div>
+        <div id="instrucciones" class="">
+            <p>Prepara un mojito y <br/>consigue un regalo en el <br /> <b>PRIMAVERA SOUND</b></p>
+            <br>
+            <img src="./img/mover.png" class="responsive img" width="50px" alt="">
+            <p>Arrastalo</p>
+        </div>
+        <div id="instrucciones2" class="ocultar">
+            <h1>¡ENHORABUENA!</h1>
+        </div>
+        <div id="ingrediente" class="box1 fadeIn">
+            <img id="item" src="./img/limas.png" class="responsive fadeIn" draggable="true" ondragstart="drag(event)" data-id="0">
         </div>
 
-        <div id="cambio" class="box1">
-            <img id="item" src="./img/limas.png" draggable="true" ondragstart="drag(event)" width="200" data-id="0">
-        </div>
-
-        <div class="box2">
+        <div id="vaso" class="box2 fadeIn">
             <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <div class="behind">
-                    <img id="coctel" src="./img/vasoVacio.png" draggable="true" ondragstart="drag(event)" width="200">
+                    <img id="coctel" src="./img/vasoVacio.png" class="responsive" draggable="true" ondragstart="drag(event)" width="200">
                 </div>
             </div>
         </div>
-
+        <div id="coctelCompleto" class="ocultar fadeIn">
+            <img id="item" src="./img/completo.png" draggable="true" ondragstart="drag(event)" width="200" data-id="0">
+        </div>
+        <div id="invitacion" class="link-bacardi ocultar">
+            <a href="https://www.bacardi.com/" target="_blank"><b>VEN POR TU MOJITO BACARDI</b></a>
+        </div>
     </div>
-    <script>
-        var steps = {
-            "coctel": [{
-                "img_item_next": "./img/menta.png",
-                "img_coctel": "./img/vasoLimas.png"
-            }, {
-                "img_item_next": "./img/soda.png",
-                "img_coctel": "./img/vasoMenta.png"
-            }, {
-                "img_item_next": "",
-                "img_coctel": "./img/vasoHielo.png"
-            }]
-        };
-
-        function allowDrop(ev) {
-            ev.preventDefault();
-        }
-
-        function drag(ev) {
-            ev.dataTransfer.setData("text", ev.target.id);
-        }
-
-
-        function drop(ev) {
-            ev.preventDefault();
-            var data = ev.dataTransfer.getData("text");
-            let step = parseInt(document.getElementById(data).getAttribute("data-id"));
-            document.getElementById(data).setAttribute("data-id", step + 1);
-            limas(step);
-        }
-
-        function limas(step) {
-            if (typeof steps.coctel[step] != "undefined") {
-                data = steps.coctel[step];
-                document.getElementById("coctel").src = data.img_coctel;
-                document.getElementById("item").src = data.img_item_next;
-            } else {
-                alert("Pailas");
-            }
-            //ev.target.appendChild(document.getElementById());
-
-        }
-
-        function transito() {
-            document.getElementById('drag1').src = "./img/menta.png";
-        }
-    </script>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>

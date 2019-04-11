@@ -5,12 +5,18 @@
 }
 
 body {
-    /* color: #fff; */
+    background: #000;
     font-family: 'Open Sans', sans-serif;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
 }
 
 .responsive {
-    width: 100%;
+    max-width: 100%;
 }
 
 .container {
@@ -23,6 +29,7 @@ body {
 
 .box1 {
     width: 40%;
+    height: 400px;
     display: inline-block;
 }
 
@@ -31,33 +38,36 @@ body {
     display: inline-block;
 }
 
-#div1 {
-    width: 100%;
-    min-height: 100px;
-    padding: 10px;
-    /* border: 1px solid #aaaaaa; */
-}
-
-.behind {
-    z-index: -10000;
-}
-
-#caja1 {}
-
-#caja2 {}
-
-#contenedor {
-    width: 40%;
-    height: 200px;
-    border: 1px solid #fff;
-}
-
 .ocultar {
     display: none;
 }
 
 .mostrar {
     display: inline-block;
+}
+
+.link-bacardi {
+    border: 1px solid #fff;
+    padding: 10px;
+}
+
+#div1 {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+}
+
+#coctelCompleto {
+    background-image: url('../img/luzFondo.png');
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
+
+#contenedor {
+    width: 40%;
+    height: 200px;
+    border: 1px solid #fff;
 }
 
 #div2 {
