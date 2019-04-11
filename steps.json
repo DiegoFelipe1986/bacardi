@@ -1,0 +1,15 @@
+{
+    "coctel": [{
+            "img_item_next": "",
+            "img_coctel": "./img/vasoLimas.png"
+        },
+        {
+            "img_item_next": "",
+            "img_coctel": "./img/vasoMenta.png"
+        },
+        {
+            "img_item_next": "",
+            "img_coctel": "./img/vasoHielo.png"
+        }
+    ]
+}

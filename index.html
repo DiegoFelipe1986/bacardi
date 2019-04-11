@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Bacardi</title>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <img src="./img/logoBacardi.png" style="width: 250px" class="responsive" alt="">
+        </div>
+
+        <div id="cambio" class="box1">
+            <img id="item" src="./img/limas.png" draggable="true" ondragstart="drag(event)" width="200" data-id="0">
+        </div>
+
+        <div class="box2">
+            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="behind">
+                    <img id="coctel" src="./img/vasoVacio.png" draggable="true" ondragstart="drag(event)" width="200">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var steps = {
+            "coctel": [{
+                "img_item_next": "./img/menta.png",
+                "img_coctel": "./img/vasoLimas.png"
+            }, {
+                "img_item_next": "./img/soda.png",
+                "img_coctel": "./img/vasoMenta.png"
+            }, {
+                "img_item_next": "",
+                "img_coctel": "./img/vasoHielo.png"
+            }]
+        };
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            let step = parseInt(document.getElementById(data).getAttribute("data-id"));
+            document.getElementById(data).setAttribute("data-id", step + 1);
+            limas(step);
+        }
+
+        function limas(step) {
+            if (typeof steps.coctel[step] != "undefined") {
+                data = steps.coctel[step];
+                document.getElementById("coctel").src = data.img_coctel;
+                document.getElementById("item").src = data.img_item_next;
+            } else {
+                alert("Pailas");
+            }
+            //ev.target.appendChild(document.getElementById());
+
+        }
+
+        function transito() {
+            document.getElementById('drag1').src = "./img/menta.png";
+        }
+    </script>
+</body>
+
+</html>
